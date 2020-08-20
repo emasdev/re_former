@@ -1,0 +1,18 @@
+<h1> Edit the User </h1>
+
+
+<%= form_for @user, url: {action: "update"} do |f| %>
+    <%= f.label "Username" %>
+    <%= f.text_field :username %>
+    <%= "Username #{@user.errors.messages[:username].first}" if !@user.errors.messages[:username].empty? %><br><br>
+     
+    <%= f.label "Email" %>
+    <%= f.email_field :email, :placeholder => "email@something.dot" %>
+    <%= "Email #{@user.errors.messages[:email].first}" if !@user.errors.messages[:email].empty? %><br><br>
+
+
+    <%= f.label "Password" %>
+    <%= f.password_field :password %>
+    <%= "Password #{@user.errors.messages[:password].first}" if !@user.errors.messages[:password].empty? %><br><br>
+    <%= f.submit "Update" %>
+  <% end %>
