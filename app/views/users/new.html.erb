@@ -1,0 +1,54 @@
+<h2>Create User</h2>
+
+
+<%= form_for @user do |f| %>
+  <%= f.label "Username" %>
+  <%= f.text_field :username %>
+  <%= "Username #{@user.errors.messages[:username].first}" if !@user.errors.messages[:username].empty? %><br><br>
+  <%= f.label "Email" %>
+  <%= f.email_field :email, :placeholder => "email@something.dot" %>
+  <%= "Email #{@user.errors.messages[:email].first}" if !@user.errors.messages[:email].empty? %><br><br>
+  
+  <%= f.label "Password" %>
+  <%= f.password_field :password %>
+  <%= "Password #{@user.errors.messages[:password].first}" if !@user.errors.messages[:password].empty? %><br><br>
+  <%= f.submit "Create" %>
+<% end %>
+
+<!--
+<%= form_tag users_path do %>
+  <%= label_tag(:username, "Name:") %>
+  <%= text_field_tag 'username' %> <br><br>
+    <%= label_tag(:email, "Email:") %>
+    <%= email_field_tag 'email' %> <br><br>
+    <%= label_tag(:password, "Password:") %>
+  <%= password_field_tag 'password' %> <br><br>
+  <%= submit_tag("Create") %>
+<% end %>
+-->
+
+<!--
+<%= form_with model: @article do |form| %>
+
+    <%= form.label "Username" %>
+    <%= form.text_field :username %><br><br>
+    <%= form.label "Email" %>
+    <%= form.text_field :email %><br><br>
+    <%= form.label "Password" %>
+    <%= form.text_field :password %><br><br>
+    <%= form.submit "Create" %>
+  <% end %>
+-->
+
+<!--
+<%=form_tag users_path do %>
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <label for="username">Username:</label>
+  <input type="text" id="username" name="user[username]"><br><br>
+  <label for="email"> Email: </label>
+  <input type="email" id="email" name="user[email]"><br><br>
+  <label for="password">Password:</label>
+  <input type="password" id="password" name="user[password]"><br><br>
+  <input type="submit" value="Submit">
+<% end %>
+-->
