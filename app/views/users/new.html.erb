@@ -1,6 +1,7 @@
 <h2>Create User</h2>
 
-<%= form_for @user, url: {action: "create"} do |f| %>
+
+<%= form_for @user do |f| %>
   <%= f.label "Username" %>
   <%= f.text_field :username %>
   <%= "Username #{@user.errors.messages[:username].first}" if !@user.errors.messages[:username].empty? %><br><br>
@@ -15,16 +16,17 @@
 <% end %>
 
 <!--
-<%= form_tag("/users", method: "post") do %>
+<%= form_tag users_path do %>
   <%= label_tag(:username, "Name:") %>
-  <%= text_field_tag(:username) %> <br><br>
+  <%= text_field_tag 'username' %> <br><br>
     <%= label_tag(:email, "Email:") %>
-  <%= email_field_tag(:email) %> <br><br>
+    <%= email_field_tag 'email' %> <br><br>
     <%= label_tag(:password, "Password:") %>
-  <%= password_field_tag(:password) %> <br><br>
+  <%= password_field_tag 'password' %> <br><br>
   <%= submit_tag("Create") %>
 <% end %>
 -->
+
 <!--
 <%= form_with model: @article do |form| %>
 
@@ -39,7 +41,7 @@
 -->
 
 <!--
-<form action="/users" method="post" accept-charset="UTF-8">
+<%=form_tag users_path do %>
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <label for="username">Username:</label>
   <input type="text" id="username" name="user[username]"><br><br>
@@ -48,5 +50,5 @@
   <label for="password">Password:</label>
   <input type="password" id="password" name="user[password]"><br><br>
   <input type="submit" value="Submit">
-</form>
+<% end %>
 -->
